@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" >
+
+	<Properties>
+		<Property name="LOG_HOME">/wls/applogs/rtlog</Property>
+		<Property name="PROJECT_NAME">fbs</Property>
+		<Property name="LOG_HOME_BIZ">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/biz</Property>
+		<Property name="LOG_HOME_SERVICE">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/service</Property>
+		<Property name="LOG_HOME_ERROR">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/error</Property>
+		<Property name="LOG_HOME_SERVICEIN">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/digest</Property>
+		<Property name="LOG_HOME_SERVICEOUT">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/digest</Property>
+		<Property name="HIPPO_HOME">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/hippo</Property>
+		<Property name="LOG_HOME_DB">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/db</Property>
+		<Property name="LOG_HOME_JOB">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/job</Property>
+		<Property name="LOG_HOME_DB_MONITOR">${LOG_HOME}/${PROJECT_NAME}/${PROJECT_NAME}/digest/db</Property>
+	</Properties>
+	
+	<!-- 
+	<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" />
+ 	-->
+
+	<appenders>
+
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</Console>
+	
+		<RollingRandomAccessFile name="bizRolling"
+			fileName="${LOG_HOME_BIZ}/fbs-default.log" filePattern="${LOG_HOME_BIZ}/fbs-%d{yyyy-MM-dd}.%i.zip"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="300 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+		
+		<RollingRandomAccessFile name="serviceRolling"
+			fileName="${LOG_HOME_SERVICE}/fbs-default.log" filePattern="${LOG_HOME_SERVICE}/fbs-%d{yyyy-MM-dd}.%i.zip"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+
+		<!-- error -->
+		<RollingRandomAccessFile name="errorRolling"
+			fileName="${LOG_HOME_ERROR}/fbs-default.log" filePattern="${LOG_HOME_ERROR}/fbs-%d{yyyy-MM-dd}.%i.zip"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+
+		<!-- servicein -->
+		<RollingRandomAccessFile name="serviceInRolling"
+			fileName="${LOG_HOME_SERVICEIN}/fbs_servicein_digest.log"
+			filePattern="${LOG_HOME_SERVICEIN}/fbs_servicein_digest_%d{yyyyMMdd}.%i.zip"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]%msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+
+		<!-- sql -->
+		<RollingRandomAccessFile name="poplarDBRolling"
+								 fileName="${LOG_HOME_DB}/poplar-default.log"
+								 filePattern="${LOG_HOME_DB}/poplar_%d{yyyyMMdd}.%i.zip"
+								 immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]%msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+
+		<!-- serviceout -->
+		<RollingRandomAccessFile name="serviceOutRolling"
+			fileName="${LOG_HOME_SERVICEOUT}/poplar_serviceout_digest.log"
+			filePattern="${LOG_HOME_SERVICEOUT}/poplar_serviceout_digest_%d{yyyyMMdd}.%i.zip"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]%msg%n</Pattern>
+				<Charset>UTF-8</Charset>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="1000" />
+		</RollingRandomAccessFile>
+
+
+
+
+
+	</appenders>
+
+	<loggers>
+		<AsyncLogger name="com.pinganfu.poplar.biz" level="DEBUG" >
+
+		</AsyncLogger>
+
+		<!-- service -->
+		<AsyncLogger name="com.pinganfu.poplar.service" level="INFO" >
+			<appender-ref ref="serviceRolling"/>
+		</AsyncLogger>
+
+		<AsyncLogger name="paff.service" level="INFO" >
+			<appender-ref ref="serviceRolling"/>
+		</AsyncLogger>
+
+		<AsyncLogger name="com.pinganfu.poplar.integration" level="INFO" >
+			<appender-ref ref="serviceRolling"/>
+		</AsyncLogger>
+
+
+        <AsyncLogger name="com.pinganfu.fip.poplar.dal"  level="DEBUG">
+            <appender-ref ref="poplarDBRolling"/>
+        </AsyncLogger>
+
+
+		<AsyncLogger name="com.pinganfu.poplar" level="ERROR">
+			<appender-ref ref="errorRolling" />
+		</AsyncLogger>
+
+		<!-- AsyncRoot -->
+		<AsyncRoot level="INFO" >
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="bizRolling" />
+
+		</AsyncRoot>
+
+	</loggers>
+	
+</configuration>

@@ -1,0 +1,1 @@
+consumerLoggerFilter=com.pinganfu.fip.fbs.integration.dubboplus.log.ConsumerLoggerFilter

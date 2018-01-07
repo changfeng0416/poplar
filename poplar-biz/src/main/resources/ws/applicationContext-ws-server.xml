@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.common.FbsMaintainceFacade" address="/FbsMaintainceFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.common.FbsMaintainceFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ChannelFacade" address="/ChannelFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ChannelFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ProductFilterRuleFacade" address="/ProductFilterRuleFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ProductFilterRuleFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ShelfFacade" address="/ShelfFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ShelfFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.ProductInfoFacade" address="/ProductInfoFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.ProductInfoFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.authorize.AuthorizeFacade" address="/AuthorizeFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.authorize.AuthorizeFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.AssetInfoFacade" address="/AssetInfoFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.AssetInfoFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.OrderInfoFacade" address="/OrderInfoFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.OrderInfoFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.transaction.TransactionFacade" address="/TransactionFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.transaction.TransactionFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ShelfPanelFacade" address="/ShelfPanelFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ShelfPanelFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ShelfPositionFacade" address="/ShelfPositionFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ShelfPositionFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.shelf.ShelfWhitelistFacade" address="/ShelfWhitelistFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.shelf.ShelfWhitelistFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.ProfitInfoFacade" address="/ProfitInfoFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.ProfitInfoFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.transaction.FundsFacade" address="/FundsFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.transaction.FundsFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.RiskTestFacade" address="/RiskTestFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.RiskTestFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.ProfitCouponFacade" address="/ProfitCouponFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.ProfitCouponFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.view.SpeedFacade" address="/SpeedFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.view.SpeedFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<jaxws:server serviceClass="com.pinganfu.fip.fbs.facade.fixedInvest.FixedInvestFacade" address="/FixedInvestFacadeRemote">
+		<jaxws:serviceBean>
+			<bean class="com.pinganfu.fip.fbs.biz.facade.impl.fixedInvest.FixedInvestFacadeImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+</beans>

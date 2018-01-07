@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- savepath: 接口文档保存地址,cat: 接口文档类别，使用系统英文缩写，如 会员系统 cip -->
+<documnet title = "FBS-接口文档" savepath="doc" cat="FBS">
+    <!-- block 属性介绍
+            name:  块名称(如引言、P1xiey)
+            type:  只可以取 preface(引言) content(协议) appendix（附录） 三个之一;
+            ftl:   指向resources/doctftl/下的freemarker文件名;
+            target:需要导出协议的目标， 到包名即可.-->
+    <block type="content" ftl="detail" name="货架管理">
+        <target>com.pinganfu.fip.fbs.facade.shelf.ChannelFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.shelf.ProductFilterRuleFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.shelf.ShelfFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.shelf.ShelfPanelFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.shelf.ShelfPositionFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.shelf.ShelfWhitelistFacade</target>
+    </block>
+    <block type="content" ftl="detail" name="交易管理">
+        <target>com.pinganfu.fip.fbs.facade.transaction.TransactionFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.transaction.FundsFacade</target>
+    </block>-->
+
+    <block type="content" ftl="detail" name="授权管理">
+        <target>com.pinganfu.fip.fbs.facade.authorize.AuthorizeFacade</target>
+    </block>
+
+    <block type="content" ftl="detail" name="视图封装">
+        <target>com.pinganfu.fip.fbs.facade.view.AssetInfoFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.OrderInfoFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.ProductInfoFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.ProfitInfoFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.RiskTestFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.ProfitCouponFacade</target>
+        <target>com.pinganfu.fip.fbs.facade.view.SpeedFacade</target>
+    </block>
+
+
+    <block type="preface" ftl="preface" name="引言"/>
+</documnet>

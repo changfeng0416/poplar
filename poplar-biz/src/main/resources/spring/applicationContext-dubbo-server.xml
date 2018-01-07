@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Application context definition. -->
+<beans  xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-autowire="byName">
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ChannelFacade" ref="channelFacade"
+				   path="/ChannelFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ProductFilterRuleFacade" ref="productFilterRuleFacade"
+				   path="/ProductFilterRuleFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ShelfFacade" ref="shelfFacade"
+				   path="/ShelfFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.ProductInfoFacade" ref="productInfoFacade"
+				   path="/ProductInfoFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.authorize.AuthorizeFacade" ref="authorizeFacade"
+				   path="/AuthorizeFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.AssetInfoFacade" ref="assetInfoFacade"
+				   path="/AssetInfoFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.OrderInfoFacade" ref="orderInfoFacade"
+				   path="/OrderInfoFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.transaction.TransactionFacade" ref="transactionFacade"
+				   path="/TransactionFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ShelfPanelFacade" ref="shelfPanelFacade"
+				   path="/ShelfPanelFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ShelfPositionFacade" ref="shelfPositionFacade"
+				   path="/ShelfPositionFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.shelf.ShelfWhitelistFacade" ref="shelfWhitelistFacade"
+				   path="/ShelfWhitelistFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.ProfitInfoFacade" ref="profitInfoFacade"
+				   path="/ProfitInfoFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.transaction.FundsFacade" ref="fundsFacade"
+				   path="/FundsFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.RiskTestFacade" ref="riskTestFacade"
+				   path="/RiskTestFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.ProfitCouponFacade" ref="profitCouponFacade"
+				   path="/ProfitCouponFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.view.SpeedFacade" ref="speedFacade"
+				   path="/SpeedFacadeRemote"/>
+
+	<dubbo:service interface="com.pinganfu.fip.fbs.facade.fixedInvest.FixedInvestFacade" ref="fixedInvestFacade"
+				   path="/FixedInvestFacadeRemote"/>
+
+
+</beans>

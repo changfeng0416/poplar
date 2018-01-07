@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://code.alibabatech.com/schema/dubbo 
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--短信接口-->
+    <dubbo:reference id="smsSenderFacade" interface="com.pinganfu.GouTong.common.facade.SmsSenderFacade" check="false" version="1.4.0"/>
+
+    <!--Email 接口-->
+    <dubbo:reference id="emailSendFacade" interface="com.pinganfu.GouTong.common.facade.EmailSendFacade" check="false" retries="0" version="1.4.0" />
+
+    <dubbo:reference id="productInfoQueryFacade" interface="com.pinganfu.fis.common.facade.ProductInfoQueryFacade" check="false"/>
+
+    <dubbo:reference id="financeTransToPayAbilityFacade" interface="com.pinganfu.fts.common.facade.FinanceTransToPayAbilityFacade" check="false" retries="0"/>
+    <!--fams资产账户查询接口-->
+    <dubbo:reference id="financeQueryFacade" interface="com.pinganfu.fams.common.facade.FinanceQueryFacade" check="false"/>
+
+    <dubbo:reference id="financeQueryServiceFacade" interface="com.pinganfu.fts.common.facade.FinanceQueryServiceFacade" check="false"/>
+
+    <dubbo:reference id="riskTestQueyFacade" interface="com.pinganfu.fis.common.facade.RiskTestQueyFacade" check="false"/>
+
+    <dubbo:reference id="assetAccountFacade" interface="com.pinganfu.fis.common.facade.AssetAccountFacade" check="false" retries="0"/>
+
+    <dubbo:reference id="proProtocolFacade" interface="com.pinganfu.fis.common.facade.ProProtocolFacade" check="false"/>
+    <!--pmf查询接口-->
+    <dubbo:reference id="pmfReceiptFacade" interface="com.pinganfu.pmf.common.facade.PmfReceiptFacade" check="false"/>
+    <!--cip查询接口-->
+    <dubbo:reference id="customerQueryFacade" interface="com.pinganfu.cip.common.facade.customer.CustomerQueryFacade" check="false"/>
+    <!--cip银行卡信息查询接口-->
+    <dubbo:reference id="bankCardFacade" interface="com.pinganfu.cip.common.facade.bank.BankCardFacade" check="false"/>
+    <!--fams资产查询接口-->
+    <dubbo:reference id="financeAssetsQueryFacade" interface="com.pinganfu.fams.common.facade.FinanceAssetsQueryFacade" check="false"/>
+
+    <dubbo:reference id="fisInvestConfirmFacade" interface="com.pinganfu.fis.common.facade.FisInvestConfirmFacade" check="false"/>
+
+    <dubbo:reference id="financeTransServiceFacade" interface="com.pinganfu.fts.common.facade.FinanceTransServiceFacade" check="false" retries="0"/>
+    <!--TransCore接口-->
+    <dubbo:reference id="transactionServiceFacade" interface="com.pinganfu.transcore.common.facade.TransactionServiceFacade" check="false"/>
+    <!--cip接口-->
+    <dubbo:reference id="custCustomizedConfigFacade" interface="com.pinganfu.cip.common.facade.configure.CustCustomizedConfigFacade" check="false"/>
+    <!--yimalll 下单接口-->
+    <dubbo:reference id="yimallCheckInOrderFacade" interface="com.pinganfu.yimall.common.facade.YimallCheckInOrderFacade" check="false" retries="0"/>
+    <!--yimalll 产品查询接口-->
+    <dubbo:reference id="yimallProductInfoFacade" interface="com.pinganfu.yimall.common.facade.YimallProductInfoFacade" check="false"/>
+
+    <dubbo:reference id="yimallFundsFacade" interface="com.pinganfu.yimall.common.facade.YimallFundsFacade" check="false" retries="0"/>
+
+    <dubbo:reference id="yimallMoneyRateTrendFacade" interface="com.pinganfu.yimall.common.facade.YimallMoneyRateTrendFacade" check="false"/>
+
+    <dubbo:reference id="yimallContractFacade" interface="com.pinganfu.yimall.common.facade.YimallContractFacade" check="false"/>
+
+    <dubbo:reference id="yimallUserQueryFacade" interface="com.pinganfu.yimall.common.facade.deposit.UserQueryFacade" check="false"/>
+
+    <dubbo:reference id="mktYimallRewardFacade" interface="com.pinganfu.mkt.common.facade.MktYimallRewardFacade" check="false" protocol="dubbo">
+        <dubbo:method name="queryTotalRewardAmt" timeout="1000" retries="0"></dubbo:method>
+        <dubbo:method name="querySpeedUpProfit" timeout="1000" retries="0"></dubbo:method>
+        <dubbo:method name="querySpeedUpProfitList" timeout="1000" retries="0"></dubbo:method>
+    </dubbo:reference>
+
+    <dubbo:reference id="mktProCouponUseRecFacade" interface="com.pinganfu.mkt.common.facade.MktProCouponUseRecFacade" check="false" protocol="dubbo" retries="0">
+        <dubbo:method name="queryProfitInfoByIds" timeout="1000" retries="0"></dubbo:method>
+    </dubbo:reference>
+
+    <dubbo:reference id="yimallQueryOrderInfoFacade" interface="com.pinganfu.yimall.common.facade.YimallQueryOrderInfoFacade" check="false"/>
+
+    <dubbo:reference id="speedGainFacade" interface="com.pinganfu.marketing.facade.speed.SpeedGainFacade" check="false" protocol="dubbo">
+        <dubbo:method name="querySpeedUpActivityInfo" timeout="1000" retries="0" />
+        <dubbo:method name="queryIsSpeedUp" timeout="1000" retries="0" />
+        <dubbo:method name="queryBatchIsSpeedUp" timeout="1000" retries="0" />
+    </dubbo:reference>
+
+    <dubbo:reference id="yimallAgreementFacade" interface="com.pinganfu.yimall.common.facade.YimallAgreementFacade" check="false"/>
+
+    <dubbo:reference id="cipCoreCustomerQueryFacade" interface="com.pinganfu.cipcore.common.facade.customer.CustomerQueryFacade" check="false"/>
+    <!--baps 单笔订单信息查询接口-->
+    <dubbo:reference id="orderQueryFacade" interface="com.pinganfu.baps.common.facade.OrderQueryFacade" check="false"/>
+
+    <dubbo:reference id="singleCardTransFacade" interface="com.pinganfu.risk.rcps.common.facade.SingleCardTransFacade" check="false">
+        <dubbo:method name="updateSingleCardTransInfo" retries="0" />
+    </dubbo:reference>
+    <!--fis 交易日信息查询接口-->
+    <dubbo:reference id="transDateQueryFacade" interface="com.pinganfu.fis.common.facade.TransDateQueryFacade" check="false"/>
+    <!--rcps cp067校验-->
+    <dubbo:reference id="payRiskCheckFacade" interface="com.pinganfu.risk.rcps.common.facade.PayRiskCheckFacade" check="false"/>
+
+    <dubbo:reference id="proRateQueryFacade" interface="com.pinganfu.fis.common.facade.ProRateQueryFacade" check="false"/>
+
+    <dubbo:reference id="mktCouponUserFacade" interface="com.pinganfu.mkt.common.facade.MktCouponUserFacade" check="false"/>
+
+    <!--cip查询接口-->
+    <dubbo:reference id="merchantQueryFacade" interface="com.pinganfu.cip.common.facade.merchant.MerchantQueryFacade" check="false"/>
+    <dubbo:reference id="cashierPayFacade" interface="com.pinganfu.cashier.common.facade.CashierPayFacade" check="false" retries="0" />
+
+    <!--fis架构2.0开户接口-->
+    <dubbo:reference id="accountFacade" interface="com.pinganfu.fis.common.facade.AccountFacade" check="false"/>
+
+    <!--fams架构2.0资产查询-->
+    <dubbo:reference id="financeExcQueryFacade" interface="com.pinganfu.fams.common.facade.excellent.FinanceExcQueryFacade" check="false"/>
+
+    <dubbo:reference id="redeemDateQueryFacade" interface="com.pinganfu.fis.common.facade.RedeemDateQueryFacade" check="false"/>
+    <dubbo:reference id="generalFinanceTransServiceFacade" interface="com.pinganfu.fts.common.facade.general.GeneralFinanceTransServiceFacade" check="false" retries="0" />
+    <dubbo:reference id="generalFinanceSignProtocolFacde" interface="com.pinganfu.fts.common.facade.general.GeneralFinanceSignProtocolFacde" check="false" retries="0" />
+
+    <!--fts富赢7号版本新增的交易查询facade-->
+    <dubbo:reference id="generalFinanceQueryServiceFacade" interface="com.pinganfu.fts.common.facade.general.GeneralFinanceQueryServiceFacade" check="false"/>
+</beans>

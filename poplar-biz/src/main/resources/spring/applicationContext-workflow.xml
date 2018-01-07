@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Application context definition. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd"
+       default-autowire="byName">
+
+    <bean id="prdListQueryActionContext" scope="prototype"
+          class="com.pinganfu.fip.fbs.biz.workflow.context.impl.view.PrdListQueryActionContext"/>
+    <bean id="queryPrdListWorkFlow" class="com.pinganfu.fip.fbs.biz.workflow.impl.DefaultWorkFlow">
+        <lookup-method name="createActionContext" bean="prdListQueryActionContext"/>
+        <property name="actionList">
+            <util:list>
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.AccessAuthAction" />
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.ProductInfoQueryAction" />
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.ProductSortAction" />
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="queryPrdListForCompWorkFlow" class="com.pinganfu.fip.fbs.biz.workflow.impl.DefaultWorkFlow">
+        <lookup-method name="createActionContext" bean="prdListQueryActionContext"/>
+        <property name="actionList">
+            <util:list>
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.AccessAuthAction" />
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.ProductInfoQueryForCompAction" />
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.ProductSortAction" />
+                <bean class="com.pinganfu.fip.fbs.biz.workflow.action.impl.view.ExtraProdInfoQueryAction" />
+            </util:list>
+        </property>
+    </bean>
+</beans>
